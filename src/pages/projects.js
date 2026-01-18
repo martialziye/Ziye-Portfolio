@@ -12,7 +12,7 @@ import proj4 from "../../public/images/projects/e-commerce-sayed-khan.png";
 import proj5 from "../../public/images/projects/dynseo.png";
 import proj6 from "../../public/images/projects/Segula-ERP.jpg";
 import proj7 from "../../public/images/projects/agent.png";
-import proj8 from "../../public/images/projects/piana.png";
+import proj8 from "../../public/images/projects/Piana.png";
 import TransitionEffect from "@/components/TransitionEffect";
 
 const FramerImage = motion(Image);
