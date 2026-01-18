@@ -83,7 +83,7 @@ const Experience = () => {
             address="Paris, France"
             work={
               <>
-                Built and maintained a full-stack web application "MAPS" to
+                Built and maintained a full-stack web application &quot;MAPS&quot; to
                 support statistical programmers in code generation for drug
                 submission, integrating LLM-based template-driven approaches to
                 automate and accelerate code creation.
@@ -109,7 +109,7 @@ const Experience = () => {
               <>
                 Led and managed cross-functional teams responsible for
                 designing, developing, and delivering full-stack cloud solutions
-                to meet clients' fintech needs, reducing amortization and ECL
+                to meet clients&apos; fintech needs, reducing amortization and ECL
                 calculation time by 96%.
                 <br />
                 Designed and launched an AI-powered equity research assistant
