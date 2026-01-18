@@ -11,12 +11,13 @@ import proj3 from "../../public/images/projects/GYM-solution.png";
 import proj4 from "../../public/images/projects/e-commerce-sayed-khan.png";
 import proj5 from "../../public/images/projects/dynseo.png";
 import proj6 from "../../public/images/projects/Segula-ERP.jpg";
+import proj7 from "../../public/images/projects/agent.png";
+import proj8 from "../../public/images/projects/piana.png";
 import TransitionEffect from "@/components/TransitionEffect";
 
 const FramerImage = motion(Image);
 
 const FeaturedProject = ({ type, title, summary, img, link, github }) => {
-
   return (
     <article
       className="relative flex w-full items-center  justify-between rounded-3xl rounded-br-2xl border
@@ -64,14 +65,16 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
           {summary}
         </p>
         <div className="mt-2 flex items-center">
-          {github&&<Link
-            href={github}
-            target={"_blank"}
-            className="w-10"
-            aria-label="Crypto Screener Application github link"
-          >
-            <GithubIcon />
-          </Link>}
+          {github && (
+            <Link
+              href={github}
+              target={"_blank"}
+              className="w-10"
+              aria-label="Crypto Screener Application github link"
+            >
+              <GithubIcon />
+            </Link>
+          )}
           <Link
             href={link}
             target={"_blank"}
@@ -90,7 +93,6 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
 };
 
 const Project = ({ title, type, img, link, github, summary }) => {
-
   return (
     <article
       className="relative flex w-full flex-col items-center justify-center rounded-2xl  rounded-br-2xl 
@@ -135,7 +137,7 @@ const Project = ({ title, type, img, link, github, summary }) => {
           </h2>
         </Link>
         <div className="flex w-full items-center  justify-between">
-          {link &&
+          {link && (
             <Link
               href={link}
               target={"_blank"}
@@ -146,8 +148,8 @@ const Project = ({ title, type, img, link, github, summary }) => {
             >
               Visit
             </Link>
-          }
-          {github &&
+          )}
+          {github && (
             <Link
               href={github}
               target={"_blank"}
@@ -156,7 +158,7 @@ const Project = ({ title, type, img, link, github, summary }) => {
             >
               <GithubIcon />
             </Link>
-          }
+          )}
         </div>
         <p className=" my-2 rounded-md font-medium text-dark dark:text-light sm:text-sm">
           {summary}
@@ -195,6 +197,33 @@ export default function Projects() {
                 summary="A cutting-edge feature-rich fintech project  web application designed to revolutionize how financial institutions, including banks and insurance companies, calculate Expected Credit Loss (ECL) and Amortization for bonds. This innovative tool offers lightning-fast and highly accurate calculations, streamlining critical financial processes."
                 img={proj1}
                 link="https://www.commandstrategy.com/?lang=en"
+              />
+            </div>
+            <div className="col-span-12">
+              <FeaturedProject
+                type="Fleet Finance Platform"
+                title="Piana Fleet & Credit Management"
+                summary="A production-grade fintech web application designed to help companies manage their vehicle fleets, combining fuel cards, deferred payments, and credit-based spending into a unified platform. The system processes large volumes of vehicle, transaction, and expense data to provide real-time visibility on usage, balances, and credit exposure."
+                img={proj8}
+                link="#"
+              />
+            </div>
+            <div className="col-span-12">
+              <FeaturedProject
+                type="Clinical Data Platform"
+                title="MAPS Metadata & Code Automation"
+                summary="MAPS assists statistical programmers by centralizing study metadata management and related data programming, reducing manual, error-prone work and accelerating clinical data analysis and reporting. Modules include: Study Metadata Manager for ADaM/SDTM setup, Code Generator for draft R programs, and Report Designer for TLF drafts."
+                img={proj2}
+                link="https://www.sanofi.com"
+              />
+            </div>
+            <div className="col-span-12">
+              <FeaturedProject
+                type="Conversational Analytics"
+                title="Data Query Agent"
+                summary="Agent helps non-technical users get data insights through natural language, removing friction from traditional BI workflows. Using LangGraph and LangSmith, the agent parses questions, maps them to schemas, generates SQL, and returns results as charts, tables, or text with conversational refinement."
+                img={proj7}
+                link="#"
               />
             </div>
             <div className="col-span-6 sm:col-span-12">
