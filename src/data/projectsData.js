@@ -58,7 +58,12 @@ export const projectShowcase = [
         "Financial tools need strong UX around validation and explainability, not just computation speed",
         "Small workflow improvements can significantly reduce analyst friction in regulated processes",
       ],
-      stack: ["React / Next.js", "Web APIs", "Fintech domain workflows", "Data validation"],
+      stack: [
+        "React / Next.js",
+        "Web APIs",
+        "Fintech domain workflows",
+        "Data validation",
+      ],
     },
   },
   {
@@ -225,7 +230,13 @@ export const projectShowcase = [
         "NL2SQL accuracy depends as much on schema context quality as on model choice",
         "Conversational analytics needs clarification UX, not only generation quality",
       ],
-      stack: ["LangGraph", "LangSmith", "LLM orchestration", "SQL", "Visualization outputs"],
+      stack: [
+        "LangGraph",
+        "LangSmith",
+        "LLM orchestration",
+        "SQL",
+        "Visualization outputs",
+      ],
     },
   },
   {
@@ -305,8 +316,8 @@ export const projectShowcase = [
       ],
       demoVideo: {
         title: "ForgeAI Demo Video",
-        watchUrl: "https://www.youtube.com/watch?v=jfsvwWj7UUI",
-        embedUrl: "https://www.youtube.com/embed/jfsvwWj7UUI?rel=0",
+        watchUrl: "https://www.youtube.com/watch?v=MwrcNoFFPKs",
+        embedUrl: "https://www.youtube.com/embed/MwrcNoFFPKs?rel=0",
       },
       extraSections: [
         {
@@ -593,8 +604,7 @@ export const projectShowcase = [
               ],
             },
           ],
-          note:
-            "The goal was to keep delivery speed high while maintaining confidence in a workflow-heavy, full-stack application.",
+          note: "The goal was to keep delivery speed high while maintaining confidence in a workflow-heavy, full-stack application.",
         },
         {
           title: "Key Engineering Decisions (Interview-Ready)",
@@ -702,8 +712,8 @@ export const projectShowcase = [
   },
 ];
 
-export const caseStudyProjects = projectShowcase.filter(
-  (project) => Boolean(project.caseStudy)
+export const caseStudyProjects = projectShowcase.filter((project) =>
+  Boolean(project.caseStudy),
 );
 
 export const getProjectBySlug = (slug) =>
