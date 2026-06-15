@@ -7,8 +7,300 @@ import proj6 from "../../public/images/projects/Segula-ERP.jpg";
 import proj7 from "../../public/images/projects/agent.png";
 import proj8 from "../../public/images/projects/Piana.png";
 import proj9 from "../../public/images/projects/forge-ai.png";
+import proj10 from "../../public/images/projects/RAG.png";
+import proj11 from "../../public/images/projects/KYC.png";
 
-export const projectShowcase = [
+const projectShowcaseBase = [
+  {
+    slug: "bank-internal-rag-knowledge-assistant",
+    variant: "featured",
+    gridClass: "col-span-12",
+    type: "Enterprise AI / RAG Platform",
+    title: "Bank Internal Knowledge RAG Assistant",
+    summary:
+      "An enterprise-grade RAG platform for internal banking knowledge search, designed to help employees query policies, procedures, product documentation, compliance notes, and operational playbooks with cited, permission-aware answers. The system combines connector-driven ingestion, asynchronous indexing, hybrid retrieval, metadata filtering, reranking, and LLM provider abstraction so the assistant behaves like trusted internal infrastructure rather than a simple chatbot demo.",
+    img: proj10,
+    externalLink: null,
+    caseStudy: {
+      tagline:
+        "A permission-aware internal banking assistant built around retrieval quality, citations, and operational reliability.",
+      confidentialityNote:
+        "This case study describes the architecture and product approach without exposing any bank data, customer information, or internal documents.",
+      role: "AI / full-stack engineer",
+      timeline: "Enterprise AI prototype to architecture-ready platform design",
+      collaboration:
+        "Worked from banking knowledge-search requirements with security, data, and product constraints in mind",
+      scope:
+        "Internal document ingestion, hybrid retrieval, grounded answer generation, citations, access controls, and observability",
+      overview:
+        "The project addresses a common banking problem: internal knowledge is scattered across policy documents, procedure manuals, shared drives, product notes, compliance updates, and operational FAQs. A useful assistant cannot simply pass documents to an LLM. It must preserve permissions, index changing content reliably, retrieve both semantic concepts and exact banking terminology, and show users why an answer can be trusted.",
+      goals: [
+        "Help employees find accurate answers across internal banking documentation faster",
+        "Ground every response in cited internal sources instead of unverified model knowledge",
+        "Preserve role-based access so users only retrieve documents they are allowed to see",
+        "Support continuous ingestion and re-indexing as policies and procedures change",
+        "Create a modular architecture that can evolve across models, indexes, and data sources",
+      ],
+      contributions: [
+        "Designed the end-to-end RAG architecture across frontend, backend API, connectors, queue, workers, object storage, indexing, and LLM providers",
+        "Defined a permission-aware retrieval flow with metadata filtering before answer generation",
+        "Specified hybrid search with vector retrieval, keyword retrieval, reranking, and source attribution for banking terminology and policy lookup",
+        "Designed answer UX requirements around citations, source snippets, timestamps, confidence signals, and feedback capture",
+        "Outlined operational observability for ingestion jobs, retrieval traces, model choices, and user feedback loops",
+      ],
+      architecture: [
+        "Frontend web app for questions, cited answers, source previews, follow-up queries, and feedback",
+        "Python backend API as the orchestration layer for auth, business logic, RAG workflow, provider routing, and audit records",
+        "Connector layer for internal knowledge sources with incremental sync, metadata normalization, and permission preservation",
+        "Task queue and background workers for parsing, OCR, chunking, embedding generation, retries, and re-indexing",
+        "Object storage for original documents, extracted text, chunk manifests, and processing artifacts",
+        "Hybrid indexing backend with vector search, keyword search, metadata filters, reranking, and document references",
+        "RAG service for query rewriting, scoped retrieval, context assembly, grounded generation, citation formatting, and fallback behavior",
+        "LLM provider strategy pattern to support model routing, cost control, latency tradeoffs, and future provider changes",
+      ],
+      outcomes: [
+        "Turned a chatbot concept into a platform-style enterprise RAG blueprint suitable for regulated banking workflows",
+        "Improved trust by making citations, source metadata, and answer provenance first-class product requirements",
+        "Reduced architectural risk by separating ingestion, retrieval, generation, and provider concerns",
+        "Created a reusable foundation for future internal knowledge use cases beyond banking policy lookup",
+      ],
+      learnings: [
+        "Enterprise RAG quality depends more on ingestion, metadata, retrieval, and governance than on prompt wording alone",
+        "Hybrid search is critical when users search for policy codes, product names, account terms, and exact internal acronyms",
+        "Access control must happen before retrieval and generation, not only as a model-stage guardrail",
+        "Operational logs and retrieval traces are necessary to improve RAG quality in a disciplined way",
+      ],
+      stack: [
+        "Next.js / React",
+        "Python API",
+        "RAG orchestration",
+        "Hybrid search",
+        "Vector embeddings",
+        "Redis / task queue",
+        "Background workers",
+        "Object storage",
+        "Metadata filtering",
+        "LLM provider abstraction",
+      ],
+      extraSections: [
+        {
+          title: "Core Banking Use Case",
+          paragraphs: [
+            "The assistant is designed for employees who need fast answers from internal banking materials: credit policies, onboarding procedures, product rules, compliance updates, branch operation playbooks, and internal FAQs.",
+            "The product goal is not to replace official documents. It helps users locate the right internal source, understand the answer quickly, and verify it through citations and source previews.",
+          ],
+          items: [
+            "Relationship managers can ask product or eligibility questions and receive cited internal guidance",
+            "Operations teams can look up procedure steps without searching multiple shared folders",
+            "Compliance users can trace answer provenance back to approved documents and timestamps",
+            "Support teams can reuse the same retrieval foundation for internal service enablement",
+          ],
+        },
+        {
+          title: "Enterprise RAG Flow",
+          groups: [
+            {
+              title: "Ingestion",
+              items: [
+                "Connectors detect new or changed internal documents",
+                "Jobs are queued for background processing instead of blocking user requests",
+                "Workers fetch source files, preserve metadata, store originals, parse content, and create chunk manifests",
+              ],
+            },
+            {
+              title: "Indexing",
+              items: [
+                "Chunks receive embeddings through a dedicated model service",
+                "Keyword and vector indexes are updated together for hybrid retrieval",
+                "Document metadata supports filtering by department, source system, freshness, access level, and document type",
+              ],
+            },
+            {
+              title: "Answering",
+              items: [
+                "The backend authenticates the user and applies permission filters before retrieval",
+                "The RAG service retrieves, reranks, assembles context, and generates a grounded answer",
+                "The frontend shows citations, snippets, document titles, timestamps, and feedback controls",
+              ],
+            },
+          ],
+        },
+        {
+          title: "Key Engineering Decisions",
+          items: [
+            "Treat RAG as a platform, not a single chat endpoint",
+            "Use asynchronous ingestion because parsing, OCR, chunking, and embeddings are long-running workloads",
+            "Keep original documents and processing artifacts in object storage so improved parsers or chunking strategies can reprocess data",
+            "Default to hybrid retrieval because banking users search by both meaning and exact identifiers",
+            "Abstract LLM providers so model strategy can evolve without rewriting business logic",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    slug: "kyc-verification-workflow",
+    variant: "featured",
+    gridClass: "col-span-12",
+    type: "Agentic Banking Compliance Platform",
+    title: "Agentic KYC Review Platform",
+    summary:
+      "A banking onboarding review platform designed around CrewAI-style multi-agent workflows. It coordinates document extraction, identity consistency checks, sanctions/PEP screening, adverse media review, risk scoring, and human compliance escalation while keeping final onboarding decisions under deterministic rules and reviewer control.",
+    img: proj11,
+    externalLink: null,
+    caseStudy: {
+      tagline:
+        "A multi-agent KYC workflow that treats compliance as an evidence chain, not a one-shot AI classification task.",
+      confidentialityNote:
+        "This case study uses a representative banking KYC architecture. No real personal identity data, vendor screening rules, sanctions data, or confidential risk models are included.",
+      role: "AI backend / fintech platform engineer",
+      timeline: "Architecture design and MVP implementation plan",
+      collaboration:
+        "Designed around banking onboarding, AML/CFT review, compliance operations, and production AI control requirements",
+      scope:
+        "CrewAI Flow orchestration, specialist KYC agents, rule-based risk scoring, reviewer dashboard, audit trail, and PII-safe operations",
+      overview:
+        "KYC review is not a simple AI classification problem. It is an evidence-driven compliance workflow where documents, identity data, sanctions signals, PEP exposure, adverse media, risk factors, and reviewer decisions all need to be connected and explainable. The project models that process as an agentic workflow, but deliberately keeps the LLM away from legally binding approval or rejection decisions.",
+      goals: [
+        "Represent a realistic banking KYC process as a controlled agent workflow, not a prompt-based demo",
+        "Break the review into specialist responsibilities: document review, identity consistency, screening, media analysis, risk scoring, and compliance summary",
+        "Keep final approval, rejection, EDD, and escalation decisions under policy rules and human review",
+        "Make each recommendation traceable to evidence, risk drivers, and internal policy context",
+        "Show production awareness around guardrails, auditability, PII protection, observability, and failure handling",
+      ],
+      contributions: [
+        "Designed the KYC lifecycle as a CrewAI Flow with clear states for intake, checks, risk assessment, enhanced due diligence, manual review, and final decision recording",
+        "Defined how specialist agents collaborate while producing structured, evidence-backed outputs that can be validated before use",
+        "Separated AI recommendations from decision authority through a deterministic rules engine and human-in-the-loop review",
+        "Planned a reviewer experience focused on case queues, evidence review, risk explanations, agent traceability, and audit timelines",
+        "Added production controls for sensitive data handling, failed provider checks, low-confidence outputs, and compliance-safe logging",
+      ],
+      architecture: [
+        "Frontend reviewer console for case triage, evidence inspection, risk review, agent trace visibility, and compliance decisions",
+        "Backend orchestration layer for case state, document metadata, screening results, reviewer actions, audit history, and progress updates",
+        "CrewAI Flow coordinating the workflow, with specialist crews handling document intake, identity matching, screening, media analysis, risk scoring, and reviewer summaries",
+        "Tool layer connected to OCR, document parsing, fuzzy matching, sanctions/PEP data, adverse media search, and policy knowledge retrieval",
+        "Rules engine responsible for risk thresholds, escalation paths, failed-check behavior, and boundaries around final decisions",
+        "Audit and observability layer capturing agent runs, tool calls, evidence sources, latency, risk signals, reviewer actions, and policy references",
+      ],
+      outcomes: [
+        "Reframed KYC automation as an evidence-based review platform rather than an LLM decision maker",
+        "Created an architecture that demonstrates practical use of CrewAI for regulated, multi-step banking workflows",
+        "Made compliance review traceable through stored inputs, outputs, tool calls, latency, token usage, risk signals, policy references, and reviewer decisions",
+        "Reduced AI risk by combining agent recommendations with deterministic rules, guardrails, and human review",
+        "Defined an MVP path that can be implemented with mock screening providers while preserving production-grade architecture",
+      ],
+      learnings: [
+        "Agent frameworks are most valuable when the business process already has multiple expert roles and evidence handoffs",
+        "In compliance systems, LLMs should extract, compare, summarize, and explain; final decisions need policy rules and accountable reviewers",
+        "Structured outputs and guardrails are mandatory when agent results feed regulated workflows",
+        "Technical failures in critical compliance checks must block auto-approval and route to pending or manual review",
+        "Observability is part of the product: reviewers and engineers need to inspect why each agent acted the way it did",
+      ],
+      stack: [
+        "Python",
+        "FastAPI",
+        "CrewAI",
+        "CrewAI Flows",
+        "PostgreSQL",
+        "Redis",
+        "React / Next.js",
+        "TypeScript",
+        "SSE",
+        "Policy RAG",
+        "OpenTelemetry",
+        "Docker",
+      ],
+      extraSections: [
+        {
+          title: "Agentic Workflow",
+          items: [
+            "The workflow is split by compliance responsibility rather than by technical function: document review, identity consistency, sanctions/PEP screening, adverse media, risk assessment, and compliance summary",
+            "Each agent contributes a focused piece of evidence, while the orchestrator manages state, dependencies, retries, escalation, and reviewer handoff",
+            "The agents are useful because KYC naturally requires several specialist perspectives to evaluate one onboarding case",
+            "The final output is not an opaque AI verdict; it is a reviewer-ready evidence package with risk drivers and suggested next actions",
+          ],
+        },
+        {
+          title: "Decision Boundary",
+          paragraphs: [
+            "The agents do not make legally binding onboarding decisions. They generate evidence-based recommendations and explanations.",
+            "Final approval, rejection, freeze, enhanced due diligence, or escalation is controlled by deterministic policy rules and human compliance reviewers. A confirmed sanctions match, invalid critical check, low OCR confidence, ambiguous PEP hit, or conflicting identity evidence blocks auto-approval.",
+          ],
+          items: [
+            "Agents extract, compare, summarize, explain, and recommend",
+            "Rules enforce thresholds, required checks, escalation paths, and policy constraints",
+            "Human reviewers own final judgement, reason codes, override notes, enhanced due diligence requests, and senior escalation",
+          ],
+        },
+        {
+          title: "Reviewer Experience",
+          groups: [
+            {
+              title: "Triage",
+              items: [
+                "Reviewers can prioritize cases by status, risk level, customer type, screening signals, and pending action",
+                "The case list surfaces operational context without exposing unnecessary sensitive information",
+              ],
+            },
+            {
+              title: "Evidence Review",
+              items: [
+                "The case detail view brings together customer data, documents, extracted evidence, screening results, risk explanation, policy references, and audit timeline",
+                "Decision actions require reason codes and reviewer notes so compliance outcomes remain traceable",
+              ],
+            },
+            {
+              title: "Agent Traceability",
+              items: [
+                "Reviewers and engineers can inspect what each agent used, what it produced, which tools were called, and why a case was escalated",
+                "This makes the system easier to debug and safer to operate than a black-box assistant",
+              ],
+            },
+          ],
+        },
+        {
+          title: "Guardrails and Failure Handling",
+          items: [
+            "Agent outputs are expected to be structured, validated, and evidence-backed before they can influence the workflow",
+            "Low-confidence extraction, ambiguous screening matches, conflicting identity data, or invalid agent outputs route the case to manual review",
+            "External provider failures do not silently pass; critical check failures block auto-approval and keep the case pending or escalated",
+            "Adverse media and screening results must be tied to concrete sources rather than model-generated claims",
+          ],
+          note: "Core rule: when a critical compliance check fails technically, the system must not auto-approve the case.",
+        },
+        {
+          title: "Policy Knowledge Base",
+          items: [
+            "The agents use internal KYC, CDD, EDD, sanctions, PEP, adverse media, country risk, product risk, source-of-funds, and escalation policies as operating context",
+            "Policy retrieval makes recommendations more grounded and allows outputs to reference the rule or procedure that shaped the suggested action",
+            "This keeps the platform closer to a banking workflow than a generic document chatbot",
+          ],
+        },
+        {
+          title: "Security and Observability",
+          groups: [
+            {
+              title: "PII Protection",
+              items: [
+                "Sensitive documents and extracted identity data are treated as restricted assets with encryption, limited access, and retention boundaries",
+                "Logs avoid personal identifiers and use internal case/document references instead",
+                "Role-based access separates analysts, compliance managers, admins, and escalation roles",
+              ],
+            },
+            {
+              title: "Operational Visibility",
+              items: [
+                "The platform tracks case outcomes, manual-review rate, agent latency, provider failures, screening hit rates, token usage, and cost signals",
+                "Every agent run can be traced through inputs, outputs, tools, guardrails, risk signals, and reviewer decisions",
+                "Observability supports both production debugging and compliance review",
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  },
   {
     slug: "web-fintech-application",
     variant: "featured",
@@ -711,6 +1003,32 @@ export const projectShowcase = [
     externalLink: "https://www.segulatechnologies.com/fr/",
   },
 ];
+
+const aiProjectPriority = [
+  "bank-internal-rag-knowledge-assistant",
+  "kyc-verification-workflow",
+  "data-query-agent",
+  "forge-ai",
+];
+
+export const projectShowcase = [...projectShowcaseBase].sort((a, b) => {
+  const aIndex = aiProjectPriority.indexOf(a.slug);
+  const bIndex = aiProjectPriority.indexOf(b.slug);
+
+  if (aIndex === -1 && bIndex === -1) {
+    return 0;
+  }
+
+  if (aIndex === -1) {
+    return 1;
+  }
+
+  if (bIndex === -1) {
+    return -1;
+  }
+
+  return aIndex - bIndex;
+});
 
 export const caseStudyProjects = projectShowcase.filter((project) =>
   Boolean(project.caseStudy),
